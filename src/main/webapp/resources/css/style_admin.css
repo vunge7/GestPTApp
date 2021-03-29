@@ -16,34 +16,84 @@ and open the template in the editor.
     font-size: 13px !important;
 }
 
+.conteudo_mater{
+    margin: 0 auto;
 
-
-.imagem
-{
-    
-   border-radius: 10px;
-  
 }
 
+.imagem_tamplate
+{
+
+    border-radius: 60%;
+    /*   height: 200px;
+       height: 200px;*/
+    padding: 10px;
+
+}
+
+
+.logo img {
+    position: relative;
+    border-radius: 20px;
+}
+
+.logo .titulo_modulo{
+    font-size: 20px;
+    font-family: Impact, fantasy;
+    background-color: black;
+    color: white;
+}
+
+.logo .area_modulo {
+
+    position: relative;
+    /*margin-left: 70%;*/
+    float: right;
+    margin-top: 3%;
+}
+
+.logo {
+
+}
 
 .rodape
 {
-    
+
     background-color: #2b2b2b;
     color: white;
     padding: 2px;
+    height: 100px;
     margin-top: 10px;
-    border-radius: 10px;
-   
+    /*border-radius: 10px;*/
+
 }
 
 .conteudo_admin{
-    /*border: yellowgreen dashed medium;*/
+    border: yellowgreen dashed medium;
     height: auto;
     width: auto;
     margin-top: 5px;
     padding: 10px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
+}
 
+
+.menu_vertical {
+    width: auto;
+    height: auto;
+    background-color: aquamarine;
+    display: inline-block;
+    
+}
+
+ .centro {
+    width: auto;
+    height: auto;
+    background-color: #D20005;
+    display: inline-block;
+    position: relative;
+    float: top;
+    
+    
 }
 

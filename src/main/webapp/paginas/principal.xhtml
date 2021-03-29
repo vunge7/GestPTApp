@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+      
+        <h:outputStylesheet library="css" name="style_admin.css" />
+    </h:head>
+    <h:body>
+        <h1>Sistema de Gestão de PT.</h1>
+        <h:panelGrid columns="2" styleClass="conteudo_mater"  >
+
+            <h:link> 
+                <p:graphicImage  styleClass="imagem_tamplate" 
+                                 library="imagens" 
+                                 name="cliente.png"  
+                                 width="200px" 
+                                 height="200px"/>               
+            </h:link>
+            <h:link> 
+                <p:graphicImage  styleClass="imagem_tamplate" 
+                                 library="imagens" 
+                                 name="financas.png"  
+                                 width="200px" 
+                                 height="200px"/>               
+            </h:link>
+            <h:link> 
+                <p:graphicImage  styleClass="imagem_tamplate" 
+                                 library="imagens" 
+                                 name="corte.png"  
+                                 width="200px" 
+                                 height="200px"/>               
+            </h:link>
+            <h:link> 
+                <p:graphicImage  styleClass="imagem_tamplate" 
+                                 library="imagens" 
+                                 name="tensao.png"  
+                                 width="200px" 
+                                 height="200px"/>               
+            </h:link>
+
+        </h:panelGrid>
+        
+        <ui:include src="../tamplate/rodape.xhtml"/>
+       
+    </h:body>
+</html>
+

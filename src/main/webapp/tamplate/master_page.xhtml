@@ -2,12 +2,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <ui:define name="titulo"> <title>Master Page</title></ui:define>
-       
+        <ui:insert name="pagina_titulo"> <title>Master Page</title></ui:insert>
+        <h:outputStylesheet library="css" name="style_admin.css" />
     </h:head>
     <h:body>
+        <div class="logo">
+            <p:graphicImage  
+                library="imagens" 
+                name="tensao.png"  
+                width="100px" 
+                height="100px"/>  
+
+            <div class="area_modulo">
+                <p:graphicImage  
+                    library="imagens" 
+                    name="tensao.png"  
+                    width="50px" 
+                    height="50px"/>    
+                <span class="titulo_modulo">
+                    <ui:insert name="modulo">  
+                        Módulo de X
+                    </ui:insert>
+                </span>
+            </div>
+
+        </div>
+        <ui:insert name="menu">
+
+        </ui:insert>
+
+        <ui:insert name="conteudo">
+           
+        </ui:insert>
+        <ui:include  src="rodape.xhtml"></ui:include>
     </h:body>
 </html>
 
