@@ -1,0 +1,2 @@
+DATA:30.03.2021- Por Celina Sebastiao
+	Antes de correr o projecto alterar o user e a password da conexao, com os dados que tem usado na sua maquina.
