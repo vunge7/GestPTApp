@@ -229,10 +229,8 @@ CREATE TABLE `pessoa` (
   `foto` longblob,
   `bi` varchar(100) DEFAULT NULL,
   `email` varchar(75) DEFAULT NULL,
-  `fk_sexo` int(11) NOT NULL,
-  PRIMARY KEY (`pk_pessoa`),
-  KEY `fk_pessoa_sexo1_idx` (`fk_sexo`),
-  CONSTRAINT `fk_pessoa_sexo1` FOREIGN KEY (`fk_sexo`) REFERENCES `sexo` (`pk_sexo`)
+  `sexo` varchar(30) NOT NULL,
+  PRIMARY KEY (`pk_pessoa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -306,29 +304,6 @@ LOCK TABLES `recibo` WRITE;
 /*!40000 ALTER TABLE `recibo` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `sexo`
---
-
-DROP TABLE IF EXISTS `sexo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sexo` (
-  `pk_sexo` int(11) NOT NULL AUTO_INCREMENT,
-  `designacao` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`pk_sexo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sexo`
---
-
-LOCK TABLES `sexo` WRITE;
-/*!40000 ALTER TABLE `sexo` DISABLE KEYS */;
-INSERT INTO `sexo` VALUES (1,'Masculino'),(2,'Femenino');
-/*!40000 ALTER TABLE `sexo` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
