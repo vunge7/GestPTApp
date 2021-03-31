@@ -117,7 +117,7 @@ public class PessoaDao {
     }
 
     
-  public List<Pessoa> findByNome(String valor) {
+    public List<Pessoa> findByNome(String valor) {
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
@@ -149,8 +149,8 @@ public class PessoaDao {
         }
         return pessoas;
     }
-  
-  public List<Pessoa> findById(int id) {
+
+    public List<Pessoa> findById(int id) {
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;

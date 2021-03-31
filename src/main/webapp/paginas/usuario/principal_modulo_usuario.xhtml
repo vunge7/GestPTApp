@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="style_admin.css" />
+    </h:head>
+
+    <h:body>
+
+        <ui:composition template="./../../tamplate/master_page.xhtml">
+
+            <ui:define name="modulo">
+                Gestão de Usuário
+            </ui:define>
+
+            <ui:define name="menu">
+                <div>
+                    <h:form>
+                        <p:growl id="messages"/>
+
+                        <!-- Menu horizontal  -->
+                        <div>
+                            <p:menubar>
+                                <p:submenu label="Ficheiro" icon="pi pi-file">    
+                                    <p:menuitem value="Novo Usuário" url="#"/>
+                                    <p:separator/>
+                                    <p:menuitem value="Xxxxxxxx" url="#"/>
+                                    <p:menuitem value="Xxxxxxx" url="#"/>
+                                    <p:separator/>
+                                    <p:menuitem value="Sair" url="#"/>
+                                </p:submenu>
+
+                                <p:submenu label="Relatórios" icon="pi pi-cog">
+                                    <p:menuitem value="Realtório 1" url="#"/>
+                                    <p:menuitem value="Realtório 2" url="#"/>
+                                    <p:menuitem value="Realtório 3" url="#"/>
+                                </p:submenu>
+
+                                <p:menuitem value="Ajuda"  url="#" />
+                                <f:facet name="options">
+                                    <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Pesquisar"/>
+                                    <p:commandButton type="button" value="Sair"   icon="pi pi-home"/>
+                                </f:facet>
+                            </p:menubar>
+                        </div>
+
+                    </h:form>
+
+                </div> 
+
+
+            </ui:define>
+
+            <ui:define name="conteudo">
+
+                <center>
+
+                    <h:form>
+
+                        <p:chart type="line" model="#{graficoLinhaBean.lineModel1}"
+                                 style="height:300px;width:800px;" />
+
+                    </h:form>
+
+                </center>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
