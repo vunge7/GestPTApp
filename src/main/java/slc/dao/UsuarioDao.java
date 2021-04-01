@@ -198,4 +198,30 @@ public class UsuarioDao {
         return usuarios;
     }
 
+     public boolean isValido( String userName, String senha )
+    {
+        Connection con;
+        PreparedStatement ps;
+        ResultSet rs;
+        try
+        {
+            con = conexao.ligarBB();
+            ps = con.prepareStatement( LOGIN );
+            ps.setString( 1, userName );
+            ps.setString( 2, senha );
+            rs = ps.executeQuery();
+            if ( rs.next() )
+            {
+                return true;
+            }
+
+        }
+        catch ( SQLException e )
+        {
+            System.err.println( "Erro ao verificar credências: " + e.getLocalizedMessage() );
+        }
+        return false;
+       }
+
+
 }

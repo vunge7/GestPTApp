@@ -11,6 +11,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import slc.dao.PessoaDao;
 import slc.dao.UsuarioDao;
@@ -37,7 +39,13 @@ public class UsuarioBean implements Serializable {
 
     String letrasNome, letrasUsername;
     Integer idPessoa, idUser;
+    private String user, pass;
 
+    String PAGINA_LOGIN = "../../../webapp/paginas/usuario/login.xhtml";
+    String PAGINA_ADMINITRACAO = "../../../webapp/paginas/usuario/principal_modulo_usuario.xhtml";
+ 
+    
+    
     /**
      * Creates a new instance of UsuarioBean
      */
@@ -52,6 +60,23 @@ public class UsuarioBean implements Serializable {
         listaUsuarios = new ArrayList();
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    
     public Pessoa getPessoa() {
         return pessoa;
     }
@@ -118,8 +143,10 @@ public class UsuarioBean implements Serializable {
 
     public String insert() {
         pessoaDao.insert(pessoa);
+        pessoaDao.lastInserted();
         usuarioDao.insert(usuario);
-        pessoa = new Pessoa();
+        
+        pessoa = new Pessoa(); 
         usuario = new Usuario();
         return "usuario-lista?faces-redirect=true";
     }
@@ -144,6 +171,23 @@ public class UsuarioBean implements Serializable {
         return "usuario-lista?faces-redirect=true";
     }
 
+    public String login()
+    {
+        if ( usuarioDao.isValido( user, pass ) )
+        {
+            user = "";
+            pass = "";
+            return PAGINA_ADMINITRACAO;
+        }
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        FacesMessage facesMessage = new FacesMessage( "Verifique o nome do usuário e senha" );
+        facesContext.addMessage( null, facesMessage );
+
+        return PAGINA_LOGIN;
+
+    }
+    
     public List<SelectItem> getOpSexos() {
         List<SelectItem> list = new ArrayList<>();
         for (Sexo sexo : Sexo.values()) {

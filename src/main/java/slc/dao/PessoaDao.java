@@ -27,6 +27,7 @@ public class PessoaDao {
     private String FIND_ALL = "SELECT p.pk_pessoa,p.nome_completo,p.data_nascimento,p.endereco,p.foto,p.bi,p.email,p.sexo FROM pessoa p";
     private String FIND_BY_NAME = "SELECT p.pk_pessoa,p.nome_completo,p.data_nascimento,p.endereco,p.foto,p.bi,p.email,p.sexo FROM pessoa p WHERE p.nome_completo LIKE ? ";
     private final String FIND_BY_ID = "SELECT * FROM pessoa WHERE pk_pessoa = ?";
+    private final String LAST_INSERT = "SELECT max(pk_pessoa) FROM pt_db.pessoa";
 
     ConexaoDB conexao = new ConexaoDB();
 
@@ -48,9 +49,31 @@ public class PessoaDao {
             System.err.println("Erro ao Inserir os dados na Base de Dados: " + e.getLocalizedMessage());
         }
     }
-    
-    
-     public void update(Pessoa p) {
+
+    public int lastInserted() {
+        PreparedStatement ps = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        int idPessoa = 0;
+
+        try {
+            conn = conexao.ligarBB();
+            ps = conn.prepareStatement(LAST_INSERT);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idPessoa = rs.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("Erro ao ler dados: " + ex.getLocalizedMessage());
+        } finally {
+            ConexaoDB.fecharConexao(conn);
+        }
+        return idPessoa;
+    }
+
+    public void update(Pessoa p) {
 
         PreparedStatement ps;
         try {
@@ -68,8 +91,8 @@ public class PessoaDao {
             System.err.println("Erro ao actualizar os dados na Base de Dados: " + e.getLocalizedMessage());
         }
     }
-     
-      public void delete(Pessoa p) {
+
+    public void delete(Pessoa p) {
         PreparedStatement ps = null;
         Connection conn = null;
 
@@ -86,8 +109,8 @@ public class PessoaDao {
         }
 
     }
-      
-       public List<Pessoa> findAll() {
+
+    public List<Pessoa> findAll() {
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
@@ -116,7 +139,6 @@ public class PessoaDao {
         return pessoas;
     }
 
-    
     public List<Pessoa> findByNome(String valor) {
         PreparedStatement ps = null;
         Connection conn = null;
@@ -182,5 +204,5 @@ public class PessoaDao {
         }
         return pessoas;
     }
-     
+
 }
