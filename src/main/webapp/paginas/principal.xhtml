@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-      
+        <title>Menu principal - GestAPP</title>
         <h:outputStylesheet library="css" name="style_admin.css" />
     </h:head>
     <h:body>
@@ -19,12 +19,12 @@
                                  width="200px" 
                                  height="200px"/>               
             </h:link>
-            <h:link> 
-                <p:graphicImage  styleClass="imagem_tamplate" 
-                                 library="imagens" 
-                                 name="financas.png"  
-                                 width="200px" 
-                                 height="200px"/>               
+            <h:link outcome="modulo_financa/principal_modulo_financa.xhtml">
+                    <p:graphicImage  styleClass="imagem_tamplate" 
+                                     library="imagens" 
+                                     name="financas.png"  
+                                     width="200px" 
+                                     height="200px"/>      
             </h:link>
             <h:link> 
                 <p:graphicImage  styleClass="imagem_tamplate" 
@@ -42,9 +42,9 @@
             </h:link>
 
         </h:panelGrid>
-        
+
         <ui:include src="../tamplate/rodape.xhtml"/>
-       
+
     </h:body>
 </html>
 
